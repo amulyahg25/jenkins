@@ -11,28 +11,28 @@ sudo chown -R tomcat:tomcat /opt/tomcat
 sudo chmod -R g+r /opt/tomcat/conf
 sudo chmod g+x /opt/tomcat/conf
 
-#add the following confiurations above </tomcat-users>
 sudo nano /opt/tomcat/conf/tomcat-users.xml
+#add the following confiurations above </tomcat-users>
     <role rolename="manager-gui" /> 
     <role rolename="manager-script" />
     <role rolename="admin-gui" />
     <user username="msis" password="msis@123" roles="manager-gui,manager-script,adm>
 
-#Disbale the following valve directive
 sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+#Disbale the following valve directive
    <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
 
-#Disbale the following valve directive
 sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
+#Disbale the following valve directive
    <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
 
 #To view java installation path
 sudo update-java-alternatives -l
 
-#Add the following configurations to the file
 sudo nano /etc/systemd/system/tomcat.service
+#Add the following configurations to the file
   [Unit]
   Description=Tomcat
   After=network.target
